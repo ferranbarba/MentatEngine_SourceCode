@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>MentatEngine | Getting Started</title><style>
+*{box-sizing:border-box} :root{--bg:#0b0f17;--bg2:#101826;--card:rgba(255,255,255,.06);--card2:rgba(255,255,255,.04);--text:#f5f7fb;--muted:#d9e2f0;--line:rgba(255,255,255,.08);--accent:#6ea8fe;--accent2:#ff8fb1;--ok:#7ed957;--warn:#ffd166} body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at top, rgba(66,103,178,.25), transparent 55%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);min-height:100vh} a{color:#fff} .wrap{max-width:1120px;margin:0 auto;padding:40px 20px 64px} .hero{text-align:center;margin-bottom:28px} .hero img{max-width:min(100%,900px);height:auto;filter:drop-shadow(0 10px 40px rgba(0,0,0,.35))} .hero h1{font-size:clamp(2rem,3vw,3.2rem);margin:14px 0 10px} .hero p{max-width:850px;margin:0 auto;line-height:1.7;color:var(--muted)} .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px} .card,.section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;backdrop-filter:blur(8px);box-shadow:0 10px 40px rgba(0,0,0,.25)} .section{margin-bottom:20px} h2,h3{margin-top:0} p,li{line-height:1.7;color:var(--muted)} code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:6px;font-family:Consolas,monospace} pre{background:#0a0f18;color:#eaf2ff;padding:14px;border-radius:12px;overflow:auto;border:1px solid var(--line);line-height:1.55;white-space:pre-wrap;word-break:break-word} .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px} .chip{display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);font-size:.95rem} .buttons,.nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px} .button{display:inline-block;padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:bold;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);transition:transform .2s ease, background .2s ease} .button:hover{transform:scale(1.03);background:rgba(255,255,255,.18)} .note{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--card2);border-left:4px solid rgba(255,255,255,.25);color:var(--muted)} .kpi{font-size:1.6rem;font-weight:700;margin-bottom:8px} .muted{color:var(--muted)} table{width:100%;border-collapse:collapse} th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top} th{color:#fff} .badge{display:inline-block;font-size:.85rem;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(110,168,254,.14);border:1px solid rgba(110,168,254,.28)} ul.tight li{margin-bottom:4px}
+</style></head><body>
+<div class="wrap">
+  <div class="hero"><img src="title.svg" alt="MentatEngine logo"><h1>Getting Started</h1><p>This page mirrors the current repository layout and Windows workflow included in the uploaded engine package.</p></div>
+  <section class="section"><h2>Requirements</h2><table><tr><th>Tool</th><th>Expected version / note</th></tr><tr><td>Python</td><td><code>3.11</code></td></tr><tr><td>Conan</td><td><code>1.66.0</code></td></tr><tr><td>CMake</td><td><code>3.27.6</code></td></tr><tr><td>Generator</td><td>Visual Studio solution via <code>tools/genproj.bat</code></td></tr></table></section>
+  <section class="section"><h2>1. Install Conan on Windows</h2><pre><code>python --version
+pip install "conan==1.66.0"
+cmake --version</code></pre><div class="note">The current README explicitly warns that newer Python versions may cause issues with Conan 1.66.0.</div></section>
+  <section class="section"><h2>2. Generate the Visual Studio solution</h2><pre><code>cd C:\path\to\MentatEngine
+tools\genproj.bat</code></pre><p>The generated solution is expected at <code>build/MentatEngine.sln</code>.</p></section>
+  <section class="section"><h2>3. Documentation workflow</h2><p>This package includes an offline website plus a synced source snapshot under <code>MentatEngine/</code>.</p><pre><code>MentatEngineDocumentation/
+├─ index.html
+├─ editor-panels.html
+├─ getting-started.html
+├─ how-tos.html
+├─ showcase.html
+├─ Doxyfile
+└─ MentatEngine/
+   ├─ include/
+   ├─ src/
+   └─ examples/</code></pre><p>If you have Doxygen installed on Windows, regenerate API docs from this folder:</p><pre><code>cd C:\path\to\MentatEngineDocumentation
+doxygen Doxyfile</code></pre></section>
+  <section class="section"><h2>4. Current renderer landscape</h2><ul class="tight"><li><strong>Phong</strong> is the default interactive path used in multiple demos and editor iteration.</li><li><strong>Shadow Map</strong> is selectable and used for shadow validation work.</li><li><strong>Deferred</strong> has a dedicated demo and editor menu entry.</li><li><strong>PBR</strong> exists in the API enum and renderer code, but the editor menu currently exposes only Phong, Shadow Map and Deferred.</li></ul></section>
+  <div class="buttons"><a class="button" href="index.html">Back to Home</a><a class="button" href="showcase.html">See Examples</a></div>
+</div></body></html>
