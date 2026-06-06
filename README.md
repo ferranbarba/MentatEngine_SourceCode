@@ -8,5 +8,5 @@
 This repository only has parts of the original code done by me, if you need the full project contact me at:
 
 ```bash
-ferranbarba@gmail.com
+ferranbarbasaez@gmail.com
 ```
